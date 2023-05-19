@@ -237,7 +237,7 @@ class TLPM:
 	def __init__(self):
 		lib_name = "TLPM_64.dll"
 		if sizeof(c_voidp) == 4:
-			self.dll = cdll.LoadLibrary(".\TLPM_32.dll")
+			lib_name = "TLPM_32.dll"
 		self.dll = cdll.LoadLibrary(f"C:\Program Files\IVI Foundation\VISA\Win64\Bin\{lib_name}")
 
 		self.devSession = c_long()
