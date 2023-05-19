@@ -235,10 +235,10 @@ TLPM_SENS_FLAG_HAS_TEMP = 0x0100  # Temperature sensor included
 class TLPM:
 
 	def __init__(self):
+		lib_name = "TLPM_64.dll"
 		if sizeof(c_voidp) == 4:
 			self.dll = cdll.LoadLibrary(".\TLPM_32.dll")
-		else:
-			self.dll = cdll.LoadLibrary(".\TLPM_64.dll")
+		self.dll = cdll.LoadLibrary(f"C:\Program Files\IVI Foundation\VISA\Win64\Bin\{lib_name}")
 
 		self.devSession = c_long()
 		self.devSession.value = 0
